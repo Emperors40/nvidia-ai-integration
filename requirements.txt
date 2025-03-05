@@ -1,1 +1,1 @@
-openai==0.27.0\nnumpy==1.21.0\n
+openai==0.27.0\nnumpy==1.21.0
