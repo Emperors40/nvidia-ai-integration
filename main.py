@@ -1,5 +1,4 @@
 
-import pygame
 import numpy as np
 from openai import OpenAI
 
@@ -21,13 +20,10 @@ for chunk in completion:
     if chunk.choices[0].delta.content is not None:
         print(chunk.choices[0].delta.content, end=)
 
-pygame.init()
 
 window_width = 800
 window_height = 600
-window = pygame.display.set_mode((window_width, window_height))
 
-pygame.display.set_caption('Production Line 3D Renderer')
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -42,7 +38,6 @@ class ConveyorBelt:
         self.width = width
 
     def render(self):
-        pygame.draw.rect(window, GRAY, (self.x, self.y, self.length, self.width))
 
 class Machine:
     def __init__(self, x, y, z, width, height):
@@ -53,7 +48,6 @@ class Machine:
         self.height = height
 
     def render(self):
-        pygame.draw.rect(window, GRAY, (self.x, self.y, self.width, self.height))
 
 class Product:
     def __init__(self, x, y, z, width, height):
@@ -64,7 +58,6 @@ class Product:
         self.height = height
 
     def render(self):
-        pygame.draw.rect(window, WHITE, (self.x, self.y, self.width, self.height))
 
 conveyor_belt1 = ConveyorBelt(100, 100, 0, 200, 20)
 conveyor_belt2 = ConveyorBelt(300, 100, 0, 200, 20)
@@ -75,8 +68,6 @@ product2 = Product(350, 150, 0, 20, 20)
 
 running = True
 while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
             running = False
 
     window.fill(BLACK)
@@ -87,9 +78,6 @@ while running:
     product1.render()
     product2.render()
 
-    pygame.display.flip()
 
-    pygame.time.delay(1000 // 60)
 
-pygame.quit()
 

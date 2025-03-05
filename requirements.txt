@@ -1,5 +1,1 @@
-
-openai==0.27.0
-pygame==2.1.2
-numpy==1.21.0
-
+openai==0.27.0\nnumpy==1.21.0\n
