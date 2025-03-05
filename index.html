@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced AI Interaction</title>
+    <title>Advanced AI Interaction Dashboard</title>
     <style>
         body { font-family: Arial, sans-serif; }
         #queryBox { display: flex; margin-top: 20px; }
-        #queryInput { flex: 1; padding: 10px; }
-        #submitButton { padding: 10px; }
-        #response { margin-top: 20px; border: 1px solid #ccc; padding: 10px; }
+        #queryInput { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        #submitButton { padding: 10px 20px; background-color: #007BFF; color: #FFF; border: none; border-radius: 4px; cursor: pointer; }
+        #submitButton:hover { background-color: #0056b3; }
+        #response { margin-top: 20px; border: 1px solid #ccc; border-radius: 4px; padding: 10px; background-color: #f9f9f9; }
     </style>
 </head>
 <body>
     <h1>AI Interaction Dashboard</h1>
+    <p>Interact with our AI model below:</p>
     <div id="queryBox">
         <input type="text" id="queryInput" placeholder="Ask the AI..." />
         <button id="submitButton">Submit</button>
     </div>
-    <div id="response">No response yet</div>
+    <div id="response">Awaiting your query...</div>
 
     <script>
         document.getElementById(submitButton).addEventListener(click, function() {
@@ -35,9 +37,9 @@
             })
             .catch(error => {
                 console.error(Error:, error);
+                document.getElementById(response).innerText = An error occurred, please try again.;
             });
         });
     </script>
 </body>
 </html>
-
